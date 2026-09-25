@@ -11,6 +11,7 @@ const connectDB = require("../config/db");
 const authRoutes = require("../routes/authRoutes");
 const testRoutes = require("../routes/testRoutes");
 const farmRoutes = require("../routes/farmRoutes");
+const cropRoutes = require("../routes/cropRoutes");
 
 dotenv.config();
 
@@ -31,6 +32,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/test", testRoutes);
 
 app.use("/api/farms", farmRoutes);
+
+app.use("/api/crops", cropRoutes);
 
 const PORT = process.env.PORT || 5000;
 
