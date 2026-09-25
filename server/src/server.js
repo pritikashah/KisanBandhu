@@ -12,6 +12,8 @@ const authRoutes = require("../routes/authRoutes");
 const testRoutes = require("../routes/testRoutes");
 const farmRoutes = require("../routes/farmRoutes");
 const cropRoutes = require("../routes/cropRoutes");
+const expenseRoutes = require("../routes/expenseRoutes");
+const harvestRoutes = require("../routes/harvestRoutes");
 
 dotenv.config();
 
@@ -35,13 +37,19 @@ app.use("/api/farms", farmRoutes);
 
 app.use("/api/crops", cropRoutes);
 
+app.use("/api/expenses", expenseRoutes);
+
+app.use("/api/harvests", harvestRoutes);
+
 const PORT = process.env.PORT || 5000;
 
 const startServer = async () => {
   await connectDB();
 
   app.listen(PORT, () => {
-    console.log(`KisanBandhu server running on port ${PORT}`);
+    console.log(
+      `KisanBandhu server running on port ${PORT}`
+    );
   });
 };
 
