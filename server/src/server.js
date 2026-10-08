@@ -14,6 +14,8 @@ const farmRoutes = require("../routes/farmRoutes");
 const cropRoutes = require("../routes/cropRoutes");
 const expenseRoutes = require("../routes/expenseRoutes");
 const harvestRoutes = require("../routes/harvestRoutes");
+const reminderRoutes = require("../routes/reminderRoutes");
+const weatherRoutes = require("../routes/weatherRoutes");
 
 dotenv.config();
 
@@ -29,19 +31,48 @@ app.get("/", (req, res) => {
   });
 });
 
-app.use("/api/auth", authRoutes);
+app.use(
+  "/api/auth",
+  authRoutes
+);
 
-app.use("/api/test", testRoutes);
+app.use(
+  "/api/test",
+  testRoutes
+);
 
-app.use("/api/farms", farmRoutes);
+app.use(
+  "/api/farms",
+  farmRoutes
+);
 
-app.use("/api/crops", cropRoutes);
+app.use(
+  "/api/crops",
+  cropRoutes
+);
 
-app.use("/api/expenses", expenseRoutes);
+app.use(
+  "/api/expenses",
+  expenseRoutes
+);
 
-app.use("/api/harvests", harvestRoutes);
+app.use(
+  "/api/harvests",
+  harvestRoutes
+);
 
-const PORT = process.env.PORT || 5000;
+app.use(
+  "/api/reminders",
+  reminderRoutes
+);
+
+app.use(
+  "/api/weather",
+  weatherRoutes
+);
+
+const PORT =
+  process.env.PORT || 5000;
 
 const startServer = async () => {
   await connectDB();
