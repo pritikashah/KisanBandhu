@@ -12,8 +12,13 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+
 import Farms from "./pages/Farms";
 import FarmDetails from "./pages/FarmDetails";
+
+import Crops from "./pages/Crops";
+import CropDetails from "./pages/CropDetails";
+
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
@@ -52,6 +57,8 @@ function App() {
             element={<Dashboard />}
           />
 
+          {/* FARM MANAGEMENT */}
+
           <Route
             path="/farms"
             element={<Farms />}
@@ -61,6 +68,20 @@ function App() {
             path="/farms/:id"
             element={<FarmDetails />}
           />
+
+          {/* CROP MANAGEMENT */}
+
+          <Route
+            path="/crops"
+            element={<Crops />}
+          />
+
+          <Route
+            path="/crops/:id"
+            element={<CropDetails />}
+          />
+
+          {/* ADMIN */}
 
           <Route
             path="/admin"
