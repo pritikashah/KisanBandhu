@@ -16,6 +16,8 @@ const expenseRoutes = require("../routes/expenseRoutes");
 const harvestRoutes = require("../routes/harvestRoutes");
 const reminderRoutes = require("../routes/reminderRoutes");
 const weatherRoutes = require("../routes/weatherRoutes");
+const schemeRoutes = require("../routes/schemeRoutes");
+const adminRoutes = require("../routes/adminRoutes");
 
 dotenv.config();
 
@@ -69,6 +71,16 @@ app.use(
 app.use(
   "/api/weather",
   weatherRoutes
+);
+
+app.use(
+  "/api/schemes",
+  schemeRoutes
+);
+
+app.use(
+  "/api/admin",
+  adminRoutes
 );
 
 const PORT =
