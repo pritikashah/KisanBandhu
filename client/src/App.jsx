@@ -19,6 +19,9 @@ import FarmDetails from "./pages/FarmDetails";
 import Crops from "./pages/Crops";
 import CropDetails from "./pages/CropDetails";
 
+import Expenses from "./pages/Expenses";
+import ProfitAnalysis from "./pages/ProfitAnalysis";
+
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
@@ -29,7 +32,9 @@ function App() {
 
         {/* PUBLIC WEBSITE */}
 
-        <Route element={<MainLayout />}>
+        <Route
+          element={<MainLayout />}
+        >
 
           <Route
             path="/"
@@ -50,7 +55,11 @@ function App() {
 
         {/* PROTECTED APPLICATION */}
 
-        <Route element={<ProtectedRoute />}>
+        <Route
+          element={<ProtectedRoute />}
+        >
+
+          {/* DASHBOARD */}
 
           <Route
             path="/dashboard"
@@ -66,7 +75,9 @@ function App() {
 
           <Route
             path="/farms/:id"
-            element={<FarmDetails />}
+            element={
+              <FarmDetails />
+            }
           />
 
           {/* CROP MANAGEMENT */}
@@ -78,7 +89,25 @@ function App() {
 
           <Route
             path="/crops/:id"
-            element={<CropDetails />}
+            element={
+              <CropDetails />
+            }
+          />
+
+          {/* EXPENSE + PROFIT */}
+
+          <Route
+            path="/expenses"
+            element={
+              <Expenses />
+            }
+          />
+
+          <Route
+            path="/profit-analysis"
+            element={
+              <ProfitAnalysis />
+            }
           />
 
           {/* ADMIN */}
