@@ -15,12 +15,13 @@ import Dashboard from "./pages/Dashboard";
 
 import Farms from "./pages/Farms";
 import FarmDetails from "./pages/FarmDetails";
-
 import Crops from "./pages/Crops";
 import CropDetails from "./pages/CropDetails";
 
 import Expenses from "./pages/Expenses";
 import ProfitAnalysis from "./pages/ProfitAnalysis";
+import WeatherReminders from "./pages/WeatherReminders";
+import Schemes from "./pages/Schemes";
 
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
@@ -29,113 +30,39 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-
-        {/* PUBLIC WEBSITE */}
-
-        <Route
-          element={<MainLayout />}
-        >
-
-          <Route
-            path="/"
-            element={<Home />}
-          />
-
-          <Route
-            path="/login"
-            element={<Login />}
-          />
-
-          <Route
-            path="/register"
-            element={<Register />}
-          />
-
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Route>
 
-        {/* PROTECTED APPLICATION */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
 
-        <Route
-          element={<ProtectedRoute />}
-        >
+          <Route path="/farms" element={<Farms />} />
+          <Route path="/farms/:id" element={<FarmDetails />} />
 
-          {/* DASHBOARD */}
+          <Route path="/crops" element={<Crops />} />
+          <Route path="/crops/:id" element={<CropDetails />} />
 
-          <Route
-            path="/dashboard"
-            element={<Dashboard />}
-          />
-
-          {/* FARM MANAGEMENT */}
+          <Route path="/expenses" element={<Expenses />} />
+          <Route path="/profit-analysis" element={<ProfitAnalysis />} />
 
           <Route
-            path="/farms"
-            element={<Farms />}
+            path="/weather-reminders"
+            element={<WeatherReminders />}
           />
 
-          <Route
-            path="/farms/:id"
-            element={
-              <FarmDetails />
-            }
-          />
-
-          {/* CROP MANAGEMENT */}
-
-          <Route
-            path="/crops"
-            element={<Crops />}
-          />
-
-          <Route
-            path="/crops/:id"
-            element={
-              <CropDetails />
-            }
-          />
-
-          {/* EXPENSE + PROFIT */}
-
-          <Route
-            path="/expenses"
-            element={
-              <Expenses />
-            }
-          />
-
-          <Route
-            path="/profit-analysis"
-            element={
-              <ProfitAnalysis />
-            }
-          />
-
-          {/* ADMIN */}
-
-          <Route
-            path="/admin"
-            element={<Admin />}
-          />
-
+          <Route path="/schemes" element={<Schemes />} />
+          <Route path="/admin" element={<Admin />} />
         </Route>
 
-        {/* NOT FOUND */}
-
-        <Route
-          path="/not-found"
-          element={<NotFound />}
-        />
+        <Route path="/not-found" element={<NotFound />} />
 
         <Route
           path="*"
-          element={
-            <Navigate
-              to="/not-found"
-              replace
-            />
-          }
+          element={<Navigate to="/not-found" replace />}
         />
-
       </Routes>
     </BrowserRouter>
   );
